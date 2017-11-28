@@ -11,6 +11,11 @@ for numToCheck in fileNumber:
     
     date=[]
     revenue=[]
+    monthTotal = 0 
+    totalRevenue = 0
+    greatestIncreaseRevenue = 0
+    greatestDecreaseRevenue = 0
+    averageRevenue = 0
 
     with open(budgetCSV,'r') as csvFile:
 
@@ -22,6 +27,8 @@ for numToCheck in fileNumber:
         for row in csvreader:
             date.append(row[0])
             revenue.append(row[1])
+
+            totalRevenue = totalRevenue + int(row[1])
 
     combinedBudgetCSV = zip(date, revenue)
 
@@ -35,7 +42,7 @@ for numToCheck in fileNumber:
         # Write the zipped lists to a csv
         csvWriter.writerows(combinedBudgetCSV)
 
-#print (combinedBudgetCSV)
-#print (date[1] + " " + revenue[1])
+print (totalRevenue)
+
     	
     		
