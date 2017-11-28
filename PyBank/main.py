@@ -10,7 +10,9 @@ for numToCheck in fileNumber:
     newBudgetCSV = os.path.join('raw_data', 'budget_data_combined.csv')
     
     date=[]
+
     revenue=[]
+    monthList=[]
     monthTotal = 0 
     totalRevenue = 0
     greatestIncreaseRevenue = 0
@@ -29,6 +31,11 @@ for numToCheck in fileNumber:
             revenue.append(row[1])
 
             totalRevenue = totalRevenue + int(row[1])
+            if not row[0] in monthList:
+                #First three characters = month
+                #Split then, reference first element
+                monthList.append(row[0].split("-", 1)[0])
+                monthTotal = monthTotal + 1
 
     combinedBudgetCSV = zip(date, revenue)
 
@@ -43,6 +50,15 @@ for numToCheck in fileNumber:
         csvWriter.writerows(combinedBudgetCSV)
 
 print (totalRevenue)
+print (monthList)
+print (monthTotal)
 
-    	
+# print("Financial Analysis")
+# print("----------------------------")
+# print("Total Months: ")
+# print("Total Revenue: $")
+# print("Average Revenue Change: $")
+# print("Greatest Increase in Revenue: ")
+# print("Greatest Decrease in Revenue: ")
+# print("----------------------------")
     		
