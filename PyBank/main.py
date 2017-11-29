@@ -46,8 +46,10 @@ for numToCheck in fileNumber:
 
                 if runningChange < greatestDecreaseRevenue: 
                     greatestDecreaseRevenue = runningChange
+                    greatestDecreaseRevenueDate = row[0]
                 elif runningChange > greatestIncreaseRevenue:
                     greatestIncreaseRevenue = runningChange
+                    greatestIncreaseRevenueDate = row[0]
 
     combinedBudgetCSV = zip(date, revenue)
 
@@ -60,8 +62,8 @@ print("----------------------------")
 print("Total Months: " + str(monthTotal))
 print("Total Revenue: $" + str(totalRevenue))
 print("Average Revenue Change: $" + str(averageRevenue))
-print("Greatest Increase in Revenue: " + str(greatestIncreaseRevenue))
-print("Greatest Decrease in Revenue: " + str(greatestDecreaseRevenue))
+print("Greatest Increase in Revenue: " + str(greatestIncreaseRevenueDate) + " ($"+str(greatestIncreaseRevenue)+")")
+print("Greatest Decrease in Revenue: " + str(greatestDecreaseRevenueDate) + " ($"+str(greatestDecreaseRevenue)+")")
 print("----------------------------")
 
 with open(newBudgetCSV, 'w', newline='') as csvFile:
