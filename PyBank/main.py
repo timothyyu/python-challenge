@@ -35,23 +35,26 @@ for numToCheck in fileNumber:
             date.append(row[0])
             revenue.append(row[1])
             totalRevenue = totalRevenue + int(row[1])
+
             if row != 1 & referenceChangeFlag == False:
                 referenceChange = int(row[1])
                 referenceChangeFlag = True
+
             elif row != 1:
                 runningChange = referenceChange - int(row[1])
-                averageRevenueChange.append(runningChange)
-                print(runningChange)
+                averageRevenueChange.append(runningChange) 
 
     combinedBudgetCSV = zip(date, revenue)
 
 monthTotal=len(date)
+averageRevenue = round(sum(averageRevenueChange)/monthTotal)
+
 
 print("Financial Analysis")
 print("----------------------------")
 print("Total Months: " + str(monthTotal))
 print("Total Revenue: $" + str(totalRevenue))
-#print("Average Revenue Change: $" + print(averageRevenueChange))
+print("Average Revenue Change: $" + str(averageRevenue))
 print("Greatest Increase in Revenue: ")
 print("Greatest Decrease in Revenue: ")
 print("----------------------------")
@@ -65,3 +68,7 @@ with open(newBudgetCSV, 'w', newline='') as csvFile:
 
     # Write the zipped lists to a csv
     csvWriter.writerows(combinedBudgetCSV)
+
+#Debugging
+
+#print(runningChange)
