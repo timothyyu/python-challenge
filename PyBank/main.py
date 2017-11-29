@@ -56,7 +56,6 @@ for numToCheck in fileNumber:
 monthTotal=len(date)
 averageRevenue = round(sum(averageRevenueChange)/monthTotal)
 
-
 print("Financial Analysis")
 print("----------------------------")
 print("Total Months: " + str(monthTotal))
@@ -66,15 +65,34 @@ print("Greatest Increase in Revenue: " + str(greatestIncreaseRevenueDate) + " ($
 print("Greatest Decrease in Revenue: " + str(greatestDecreaseRevenueDate) + " ($"+str(greatestDecreaseRevenue)+")")
 print("----------------------------")
 
-with open(newBudgetCSV, 'w', newline='') as csvFile:
+#-------------------------------------------------------
+#Write terminal results to new file
 
-    csvWriter = csv.writer(csvFile, delimiter=',')
+with open('output.txt', 'w+') as file:
+    #print >> f, 'Filename:', filename  # Python 2.x
+    file.write("Financial Analysis" + '\n')
+    file.write("----------------------------" + '\n')
+    file.write("Total Months: " + str(monthTotal)+ '\n')
+    file.write("Total Revenue: $" + str(totalRevenue)+ '\n')
+    file.write("Average Revenue Change: $" + str(averageRevenue)+ '\n')
+    file.write("Greatest Increase in Revenue: " + str(greatestIncreaseRevenueDate) + " ($"+str(greatestIncreaseRevenue)+")"+ '\n')
+    file.write("Greatest Decrease in Revenue: " + str(greatestDecreaseRevenueDate) + " ($"+str(greatestDecreaseRevenue)+")"+ '\n')
+    file.write("----------------------------"+ '\n')
+    file.close()
+#-------------------------------------------------------
+#Save the combined CSV data to a new file
+
+#with open(newBudgetCSV, 'w', newline='') as csvFile:
+
+    #csvWriter = csv.writer(csvFile, delimiter=',')
 
     # Write Headers into file
-    csvWriter.writerow(["Date","Revenue"])
+
+    #csvWriter.writerow(["Date","Revenue"])
 
     # Write the zipped lists to a csv
-    csvWriter.writerows(combinedBudgetCSV)
+
+    #csvWriter.writerows(combinedBudgetCSV)
 
 #-------------------------------------------------------
 #Debugging
