@@ -15,9 +15,13 @@ for numToCheck in fileNumber:
 
     monthTotal = 0 
     totalRevenue = 0
+
     greatestIncreaseRevenue = 0
     greatestDecreaseRevenue = 0
+    
     averageRevenue = 0
+    runningChange = 0 
+    averageRevenueChange=[]
 
     with open(budgetCSV,'r') as csvFile:
 
@@ -29,15 +33,8 @@ for numToCheck in fileNumber:
         for row in csvreader:
             date.append(row[0])
             revenue.append(row[1])
-
             totalRevenue = totalRevenue + int(row[1])
-            if not row[0] in monthList:
-                #First three characters = month
-                #Split then, reference first element
-                #monthList.append(row[0].split("-", 1)[0])
-                monthList.append(row[0])
-                monthTotal = monthTotal + 1
-
+        
     combinedBudgetCSV = zip(date, revenue)
 
     with open(newBudgetCSV, 'w', newline='') as csvFile:
@@ -50,14 +47,13 @@ for numToCheck in fileNumber:
         # Write the zipped lists to a csv
         csvWriter.writerows(combinedBudgetCSV)
 
-print (monthList)
+monthTotal=len(date)
 
 print("Financial Analysis")
 print("----------------------------")
 print("Total Months: " + str(monthTotal))
 print("Total Revenue: $" + str(totalRevenue))
-print("Average Revenue Change: $")
+#print("Average Revenue Change: $" + print(averageRevenueChange))
 print("Greatest Increase in Revenue: ")
 print("Greatest Decrease in Revenue: ")
 print("----------------------------")
-    		
