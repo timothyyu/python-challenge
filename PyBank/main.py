@@ -51,7 +51,7 @@ for numToCheck in fileNumber:
                     greatestIncreaseRevenue = runningChange
                     greatestIncreaseRevenueDate = row[0]
 
-    combinedBudgetCSV = zip(date, revenue)
+    #combinedBudgetCSV = zip(date, revenue)
 
 monthTotal=len(date)
 averageRevenue = round(sum(averageRevenueChange)/monthTotal)
