@@ -1,7 +1,8 @@
 import csv
 import os
 
-fileNumber = ['1', '2']
+fileNumber = ['1']
+#fileNumber = ['1', '2']
 
 for numToCheck in fileNumber:
 
@@ -9,7 +10,7 @@ for numToCheck in fileNumber:
 
 	totalVotes = 0
 	candidateList = []
-	unqiueList = [] 
+	uniqueList= [] 
 
 	with open(electionCSV,'r') as csvFile:
 
@@ -20,17 +21,18 @@ for numToCheck in fileNumber:
 
 		for row in csvreader:
 			candidateList.append(row[2])
-	
-		#for row in candidateList:
-			#if row[2] not in unqiueList:
-				#unqiueList.append(row[1])
+		for row in candidateList:
+			if row not in uniqueList:
+				uniqueList.append(row)		
+				
+print(uniqueList)
+totalVotes = len(candidateList)
+print (totalVotes)
 
-		totalVotes = len(candidateList)
-		print (totalVotes)
 #-------------------------------------------------------
 #Debugging
 
-for x in range (1,20):
-	print (candidateList[x])
+#for x in range (1,20):
+	#print (candidateList[x])
 	
 
