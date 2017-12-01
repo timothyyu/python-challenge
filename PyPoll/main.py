@@ -24,7 +24,7 @@ for numToCheck in fileNumber:
 			candidateList.append(row[2])
 
 #Dictionary for k:v pairs
-#d = {}
+d = {}
 
 #This loop must be outside numToCheck for loop to count all .csv items
 for row in candidateList:
@@ -34,7 +34,7 @@ for row in candidateList:
 		uniqueList.append(row)
 		d[row]=uniqueCount
 
-print(d)
+#print(d)
 
 #pseudocode for unqiue vote count per candidate 
 '''
@@ -53,7 +53,7 @@ print("----------------------------")
 print("Total Votes: " + str(totalVotes))
 print("----------------------------")
 for candidate in d:
-	print (candidate +":")
+	print(candidate +":" + "("+str(d[candidate]) +")")
 print("----------------------------")
 print("Election winner: ")
 print("----------------------------")
