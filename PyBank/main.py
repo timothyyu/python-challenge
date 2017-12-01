@@ -38,9 +38,11 @@ for numToCheck in fileNumber:
             totalRevenue = totalRevenue + int(row[1])
 
             if row != 1 & referenceChangeFlag == False:
+                #Skip first item in revenue list to prevent index/out of bounds error
                 referenceChange = int(row[1])
+                    #set first value of revenue list to be reference
                 referenceChangeFlag = True
-
+                
             elif row != 1:
                 runningChange = referenceChange - int(row[1])
                 averageRevenueChange.append(runningChange) 
@@ -56,7 +58,10 @@ for numToCheck in fileNumber:
     #combinedBudgetCSV = zip(date, revenue)
 
 #period definition for output, i.e. what is the definition of one period for the analysis? 
+
 '''
+#psuedocode for period definition (not implemented)
+
 userinput [y/n] to use 12 months as period definition
 output:
     Total months 
@@ -67,12 +72,11 @@ output:
     greatest increase in revenue, month/year, period count, $ decrease
 
 '''
+
 monthTotal=len(date)
 print("Using total number of months as period for analysis...")
 averageRevenue = round(sum(averageRevenueChange)/monthTotal)
 
-
-pseudo 
 print("Financial Analysis")
 print("----------------------------")
 print("Total Months: " + str(monthTotal))
