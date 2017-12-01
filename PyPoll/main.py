@@ -23,18 +23,28 @@ for numToCheck in fileNumber:
 		for row in csvreader:
 			candidateList.append(row[2])
 
+#Dictionary for k:v pairs
+#d = {}
+
+#This loop must be outside numToCheck for loop to count all .csv items
 for row in candidateList:
+	
 	if row not in uniqueList:
+		uniqueCount = candidateList.count(row)
 		uniqueList.append(row)
+		d[row]=uniqueCount
+
+print(d)
+
+#pseudocode for unqiue vote count per candidate 
 '''
 for each unique item in unique list
-	count the occurences of said unqiue item in individual counters
+	count the occurences of said unique item in individual counters
 	
 	then calculate percentage in relation of total votes
 
 	then calcuate winner
-''' 				
-print(uniqueList)
+''' 
 
 totalVotes = len(candidateList)
 
@@ -42,6 +52,8 @@ print("Election Results")
 print("----------------------------")
 print("Total Votes: " + str(totalVotes))
 print("----------------------------")
+for candidate in d:
+	print (candidate +":")
 print("----------------------------")
 print("Election winner: ")
 print("----------------------------")
@@ -56,5 +68,8 @@ print("----------------------------")
 
 #for x in range (1,20):
 	#print (candidateList[x])
+
+#print(uniqueList)
+
 	
 
