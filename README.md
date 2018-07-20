@@ -6,6 +6,10 @@ Project repository consisting of applied python programming challenges in the co
 
 Text exploration and analysis of Lewis Carroll's *Alice in Wonderland* using Python, applying data science methods, machine learning,  and visualization techniques.
 
+## ProjectEuler [**moved to private repository**]
+
+Worked solutions/programs to [Project Euler problems](https://projecteuler.net). Project Euler is a series of mathematical and computer science problems that require a synergy of applied programming and math skills to solve. Note: *Project Euler solutions have been moved to a private repository; publishing solutions publicly is highly discouraged:* https://projecteuler.net/about
+
 ### PyBank 
 
 Python script for analyzing financial records of a company that calculates the following from revenue data in .csv format:
